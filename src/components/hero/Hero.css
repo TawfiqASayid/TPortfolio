@@ -1,0 +1,127 @@
+/* Hero Section Styling */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  background: url("../../assets/ph.png") no-repeat center center;
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: top center; /* Adjusts the visible part of the image */
+  background-attachment: fixed; /* Keeps the background fixed during scroll */
+  position: relative;
+  padding: 120px 20px;
+  overflow: hidden;
+  margin:30px 30px;
+  border-radius:20px;
+  
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay for text contrast */
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%; /* Full width of the foreground content */
+  max-width: 1200px; /* Limits the width on large screens */
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border-radius: 15px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.hero h1 span {
+  background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.hero-action {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.hero-connect,
+.hero-resume {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-connect {
+  background: linear-gradient(135deg, #da7c25, #b923e1);
+}
+
+.hero-resume {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  background: #333;
+  border: 1px solid #ccc;
+  display: inline-block; /* Ensures button-like appearance */
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-resume:hover {
+  transform: scale(1.05);
+  background: #444;
+  border-color: #fff;
+}
+
+.hero-resume:hover {
+  transform: scale(1.05);
+  background: #444;
+  border-color: #fff;
+}
+
+.hero-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-icon:hover {
+  transform: scale(1.2);
+  color: #ffcc00;
+}

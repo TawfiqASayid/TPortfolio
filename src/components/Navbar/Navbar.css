@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  align-items: center; /* Vertically centers items */
+  justify-content: space-between; /* Creates space between the logo and menu */
+  margin: 20px 170px;
+}
+
+.navbar-logo {
+  width: 20px; /* Adjust the size of the logo */
+  height: 20px; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+.navbar-logo:hover {
+  transform: scale(1.1); /* Slightly enlarges the logo on hover */
+}
+body.light {
+  background-color: #f5f5f5;
+  color: #121212;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 60px; /* Adds space between the menu items */
+  font-size: 20px;
+}
+
+.nav-menu li {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: relative; /* For positioning the underline */
+}
+
+.anchorlink {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.anchorlink:hover {
+  color: #f39c12; /* Highlight color on hover */
+}
+
+.underline {
+  width: 40%;
+  height: 2px;
+  background-color: #f39c12; /* Compact and visually appealing color */
+  margin: auto; /* Centers the underline */
+  transition: all 0.3s ease; /* Smooth animation */
+}
+
+.nav-menu li:hover .underline {
+  width: 60%; /* Expands the underline on hover */
+}
