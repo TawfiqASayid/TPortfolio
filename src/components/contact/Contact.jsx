@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import horizontal_img from "../../assets/horizontal-line_icon.png";
 import "./Contact.css";
 
-const Contact = ({ theme }) => {
+const Contact = ({ theme}) => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);

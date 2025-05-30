@@ -1,38 +1,95 @@
-
+import { useState } from 'react';
 import arrow_icon from '../../assets/arrow-right.svg';
-import github_icon from '../../assets/github_icon.png'; // Add your GitHub icon asset
-import underline_img from '../../assets/horizontal-line_icon.png';
+import github_icon from '../../assets/github_icon.png';
 import mywork_data from '../../assets/MyWork_data';
 import './Mywork.css';
 
-const Mywork = ({ theme = 'light-theme' }) => {
+const Mywork = () => {
+  const [visibleProjects, setVisibleProjects] = useState(6);
+  const [theme, setTheme] = useState('light-theme'); // Theme state for toggle
+  const categories = ['All', ...new Set(mywork_data.map(work => work.category))];
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const filteredProjects = mywork_data.filter(
+    (work) => selectedCategory === 'All' || work.category === selectedCategory
+  );
+
+  const handleShowMore = () => {
+    setVisibleProjects((prevCount) => prevCount + 6);
+  };
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light-theme' ? 'dark-theme' : 'light-theme'));
+  };
+
   return (
-    <section id="portfolio" className={`mywork ${theme}`}>
+    <div id="portfolio" className={`mywork ${theme}`}>
+      {/* Theme Toggle Button */}
+      <button
+        onClick={toggleTheme}
+        className="theme-toggle-button"
+        aria-label="Toggle Theme"
+        title="Toggle between light and dark theme"
+      >
+        {theme === 'light-theme' ? 'Switch to Dark' : 'Switch to Light'}
+      </button>
+
+      {/* Page Title */}
       <div className="mywork-title">
-        <h1>My Projects</h1>
-        <img src={underline_img} alt="Underline Decoration" />
+        <h1>Projects</h1>
       </div>
-      <div className="mywork-container">
-        {mywork_data.map((work, index) => (
+
+      {/* Filter Buttons */}
+      <div className="filter-container">
+        {categories.map((category, index) => (
+          <button
+            key={index}
+            className={`filter-button ${selectedCategory === category ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(category)}
+            aria-label={`Filter by ${category}`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Project Cards */}
+      <section className="mywork-container">
+        {filteredProjects.slice(0, visibleProjects).map((work, index) => (
           <div key={index} className="project-card">
             <img src={work.w_img} alt={work.w_name} loading="lazy" />
+            <div className="project-info">
+              <h3>{work.w_name}</h3>
+              <p>{work.description}</p>
+            </div>
             <a
               href={work.github_link}
               target="_blank"
               rel="noopener noreferrer"
               className="github-icon"
-              title={`View ${work.w_name} on GitHub`}
+              aria-label={`View ${work.w_name} on GitHub`}
             >
               <img src={github_icon} alt="GitHub Icon" />
             </a>
           </div>
         ))}
-      </div>
-      <div className="mywork-showmore">
-        <p>Show More</p>
-        <img src={arrow_icon} alt="Go for more" />
-      </div>
-    </section>
+      </section>
+
+      {/* Show More Button */}
+      {visibleProjects < filteredProjects.length && (
+        <div
+          className="mywork-showmore"
+          onClick={handleShowMore}
+          title="Load more projects"
+          tabIndex={0}
+          role="button"
+          aria-label="Show more projects"
+        >
+          <p>Show More</p>
+          <img src={arrow_icon} alt="Arrow Icon" className="arrow-icon" />
+        </div>
+      )}
+    </div>
   );
 };
 
