@@ -1,45 +1,56 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import logo from '../../assets/logo.png';
 import './navbar.css';
 
 const Navbar = () => {
   const [menu, setMenu] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const navItems = [
+    { label: 'home', href: '#home' },
+    { label: 'about me', href: '#about' },
+    { label: 'services', href: '#services' },
+    { label: 'portfolio', href: '#Projects' },
+    { label: 'contact', href: '#contact' }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className="navbar">
-      <img src={logo} alt="logo" className="navbar-logo" />
-      <ul className="nav-menu">
-        <li>
-          <AnchorLink className="anchorlink" href="#home">
-            <p onClick={() => setMenu('home')}>home</p>
-          </AnchorLink>
-          {menu === 'home' ? <div className="underline" /> : null}
-        </li>
-        <li>
-          <AnchorLink className="anchorlink" offset={50} href="#about">
-            <p onClick={() => setMenu('about me')}>about me</p>
-          </AnchorLink>
-          {menu === 'about me' ? <div className="underline" /> : null}
-        </li>
-        <li>
-          <AnchorLink className="anchorlink" offset={50} href="#services">
-            <p onClick={() => setMenu('services')}>services</p>
-          </AnchorLink>
-          {menu === 'services' ? <div className="underline" /> : null}
-        </li>
-        <li>
-          <AnchorLink className="anchorlink" offset={50} href="#portfolio">
-            <p onClick={() => setMenu('portfolio')}>portfolio</p>
-          </AnchorLink>
-          {menu === 'portfolio' ? <div className="underline" /> : null}
-        </li>
-        <li>
-          <AnchorLink className="anchorlink" offset={50} href="#contact">
-            <p onClick={() => setMenu('contact')}>contact</p>
-          </AnchorLink>
-          {menu === 'contact' ? <div className="underline" /> : null}
-        </li>
+    <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <img src={logo} alt="Logo" className="navbar-logo" />
+
+      <div className="burger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <div className={`bar ${isMobileMenuOpen ? 'open' : ''}`} />
+        <div className={`bar ${isMobileMenuOpen ? 'open' : ''}`} />
+        <div className={`bar ${isMobileMenuOpen ? 'open' : ''}`} />
+      </div>
+
+      <ul className={`nav-menu ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        {navItems.map((item) => (
+          <li
+            key={item.label}
+            className={menu === item.label ? 'active' : ''}
+            onClick={() => {
+              setMenu(item.label);
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            <AnchorLink className="anchorlink" offset={50} href={item.href}>
+              <p>{item.label}</p>
+            </AnchorLink>
+            <div className="underline" />
+          </li>
+        ))}
       </ul>
     </div>
   );

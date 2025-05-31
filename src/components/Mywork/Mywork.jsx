@@ -6,7 +6,6 @@ import './Mywork.css';
 
 const Mywork = () => {
   const [visibleProjects, setVisibleProjects] = useState(6);
-  const [theme, setTheme] = useState('light-theme'); // Theme state for toggle
   const categories = ['All', ...new Set(mywork_data.map(work => work.category))];
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -18,22 +17,8 @@ const Mywork = () => {
     setVisibleProjects((prevCount) => prevCount + 6);
   };
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light-theme' ? 'dark-theme' : 'light-theme'));
-  };
-
   return (
-    <div id="portfolio" className={`mywork ${theme}`}>
-      {/* Theme Toggle Button */}
-      <button
-        onClick={toggleTheme}
-        className="theme-toggle-button"
-        aria-label="Toggle Theme"
-        title="Toggle between light and dark theme"
-      >
-        {theme === 'light-theme' ? 'Switch to Dark' : 'Switch to Light'}
-      </button>
-
+    <div id="Projects" className="mywork">
       {/* Page Title */}
       <div className="mywork-title">
         <h1>Projects</h1>

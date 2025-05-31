@@ -1,46 +1,19 @@
-/* Root Variables */
-:root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --background-light: #ffffff;
-  --background-dark: #121212;
-  --text-light: #000000;
-  --text-dark: #ffffff;
-  --card-bg-light: #f8f9fa;
-  --card-bg-dark: #1c1c1c;
-  --button-bg-light: #e9ecef;
-  --button-bg-dark: #333333;
-  --shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* Theme-Specific Variables */
-.light-theme {
-  --background-color: var(--background-light);
-  --text-color: var(--text-light);
-  --card-bg: var(--card-bg-light);
-  --button-bg: var(--button-bg-light);
-}
-
-.dark-theme {
-  --background-color: var(--background-dark);
-  --text-color: var(--text-dark);
-  --card-bg: var(--card-bg-dark);
-  --button-bg: var(--button-bg-dark);
-}
-
-/* General Styling */
+/* Base styling */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
 
+/* Main section */
 .mywork {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  padding: 40px 0;
-  transition: background-color 0.3s, color 0.3s;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Title */
 .mywork-title h1 {
   font-size: 60px;
   font-weight: 600;
@@ -48,36 +21,18 @@ body {
   margin-bottom: 30px;
 }
 
-/* Theme Toggle Button */
-.theme-toggle-button {
-  background-color: var(--button-bg);
-  color: var(--text-color);
-  border: 2px solid var(--text-color);
-  padding: 10px 15px;
-  border-radius: 25px;
-  cursor: pointer;
-  margin: 10px auto;
-  display: block;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s;
-}
-
-.theme-toggle-button:hover {
-  background-color: var(--primary-color);
-  color: #fff;
-  transform: scale(1.1);
-}
-
-/* Filter Buttons */
+/* Filter buttons */
 .filter-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 30px;
 }
 
 .filter-button {
-  background-color: var(--button-bg);
-  color: var(--text-color);
+  background-color: #e9ecef;
+  color: #000;
   padding: 10px 20px;
   border: none;
   border-radius: 25px;
@@ -86,29 +41,31 @@ body {
 }
 
 .filter-button.active {
-  background-color: var(--primary-color);
+  background-color: #007bff;
   color: #fff;
   transform: scale(1.1);
 }
 
 .filter-button:hover {
-  background-color: var(--secondary-color);
+  background-color: #6c757d;
   color: #fff;
 }
 
-/* Project Cards */
+/* Project grid */
 .mywork-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
+/* Individual project card */
 .project-card {
-  background-color: var(--card-bg);
-  color: var(--text-color);
+  background-color: #f8f9fa;
+  color: #000;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -127,7 +84,7 @@ body {
   padding: 15px;
 }
 
-/* GitHub Icon */
+/* GitHub icon */
 .github-icon {
   position: absolute;
   top: 10px;
@@ -135,7 +92,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--button-bg);
+  background-color: #e9ecef;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,7 +104,7 @@ body {
   height: 20px;
 }
 
-/* Show More Button */
+/* Show More */
 .mywork-showmore {
   text-align: center;
   cursor: pointer;

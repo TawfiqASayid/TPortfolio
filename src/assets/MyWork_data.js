@@ -5,19 +5,19 @@ const mywork_data = [
     w_no: 1,
     w_name: "Web Design",
     w_img: proj,
-    github_link: "https://github.com/your-username/web-design"
+    github_link: "https://github.com/TawfiqGmen/my_portfolio.git"
   },
   {
     w_no: 2,
     w_name: "Malaria Detect App",
     w_img: proj,
-    github_link: "https://github.com/your-username/malaria-detect-app"
+    github_link: "https://github.com/TawfiqGmen/simple-flutter-malaria-checker-application.git"
   },
   {
     w_no: 3,
     w_name: "Text Classification ML System",
     w_img: proj,
-    github_link: "https://github.com/your-username/text-classification-ml"
+    github_link: "https://github.com/TawfiqGmen/text_classification_system.git"
   },
   {
     w_no: 4,

@@ -1,77 +1,55 @@
-/* Global Styles */
+/* Main Container */
 .contact {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 60px;
-  padding: 60px 20px;
-  border-radius: 20px;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* Light Theme */
-.contact.light {
-  background: linear-gradient(135deg, #f7f7f7, #eaeaea);
+  padding: 60px 5vw;
+  /* border-radius: 20px; */
+  background-color: rgba(255, 255, 255, 0.8);
   color: #333;
+  width: 100%;
+  margin-top:10px;
+  box-sizing: border-box;
 }
 
-.contact.light .contact-submit {
-  background: linear-gradient(90deg, #007bff, #0056b3);
-  color: #fff;
-}
-
-.contact.light .contact-submit:hover {
-  background: linear-gradient(90deg, #0056b3, #003f7f);
-}
-
-/* Dark Theme */
-.contact.dark {
-  background: linear-gradient(135deg, #1a1a1a, #333);
-  color: #ddd;
-}
-
-.contact.dark .contact-submit {
-  background: linear-gradient(90deg, #ff5722, #e64a19);
-  color: #fff;
-}
-
-.contact.dark .contact-submit:hover {
-  background: linear-gradient(90deg, #e64a19, #d84315);
-}
-
-/* Title */
+/* Title Section */
 .contact-title h1 {
-  font-size: 50px;
+  font-size: 48px;
   font-weight: 700;
   background: linear-gradient(90deg, #6a11cb, #2575fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-align: center;
 }
 
-.contact-title img {
+/* .contact-title img {
   width: 60px;
   opacity: 0.7;
-}
+  margin: 10px auto;
+  display: block;
+} */
 
-/* Contact Section: Side by Side */
+/* Layout: Left and Right Panels */
 .contact-section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
-  max-width: 1200px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .contact-left,
 .contact-right {
   flex: 1;
+  min-width: 300px;
+  box-sizing: border-box;
 }
 
-/* Left Side */
+/* Contact Left Content */
 .contact-left h1 {
-  font-size: 36px;
+  font-size: 32px;
   margin-bottom: 20px;
 }
 
@@ -104,7 +82,7 @@
   font-size: 24px;
 }
 
-/* Right Side */
+/* Form Labels and Fields */
 .contact-right label {
   font-size: 14px;
   margin-bottom: 5px;
@@ -114,13 +92,15 @@
 .contact-right input,
 .contact-right textarea {
   width: 100%;
-  padding: 12px 15px;
+  padding: 14px 18px;
   border-radius: 8px;
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border: none;
   background: linear-gradient(135deg, #e0eafc, #cfdef3);
   color: #333;
+  resize: vertical;
+  box-sizing: border-box;
 }
 
 .contact-right input:focus,
@@ -128,17 +108,20 @@
   outline: 2px solid #2575fc;
 }
 
-.contact-right button {
-  padding: 12px 30px;
+/* Submit Button */
+.contact-submit {
+  padding: 14px 32px;
   font-size: 16px;
   font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-right button:hover {
+.contact-submit:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
@@ -153,5 +136,9 @@
   .contact-left,
   .contact-right {
     width: 100%;
+  }
+
+  .contact-title h1 {
+    font-size: 36px;
   }
 }

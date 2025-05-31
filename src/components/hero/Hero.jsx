@@ -1,5 +1,5 @@
-import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+
+import { FaGithub, FaTwitter } from "react-icons/fa";
 import "./Hero.css";
 
 const Hero = () => {
@@ -14,14 +14,14 @@ const Hero = () => {
         </p>
         <div className="hero-action">
           <a
-            href="#connect"
+            href="#contact"
             className="hero-connect"
             title="Connect with Tofik Ahmed"
           >
             Connect with me
           </a>
           <a
-            href="../../assets/Tofik_Ahmed_Resume.pdf"
+           href="/my_resume.pdf"
             className="hero-resume"
             title="Open or Download my Resume"
             target="_blank"
@@ -47,14 +47,14 @@ const Hero = () => {
           >
             <FaTwitter className="hero-icon" />
           </a>
-          <a
+          {/* <a
             href="https://linkedin.com/"
             target="_blank"
             rel="noopener noreferrer"
             title="LinkedIn"
           >
             <FaLinkedin className="hero-icon" />
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

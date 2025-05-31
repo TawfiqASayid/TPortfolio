@@ -1,13 +1,11 @@
 import { faEnvelope, faMapMarkerAlt, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import horizontal_img from "../../assets/horizontal-line_icon.png";
 import "./Contact.css";
 
-const Contact = ({ theme}) => {
+const Contact = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-
     formData.append("access_key", "f1e70204-7bde-4e44-905b-1fe14c76ea61");
 
     const object = Object.fromEntries(formData);
@@ -30,14 +28,15 @@ const Contact = ({ theme}) => {
   };
 
   return (
-    <div id="contact" className={`contact ${theme}`}>
+    <div id="contact" className="contact">
       <div className="contact-title">
         <h1>Get in Touch</h1>
-        <img src={horizontal_img} alt="horizontal line" />
+        {/* <img src={horizontal_img} alt="horizontal line" /> */}
       </div>
+
       <div className="contact-section">
         <div className="contact-left">
-          <h1>Let's Talk</h1>
+          <h1>Let Talk</h1>
           <p>
             I am ready to take on exciting projects related to my field of
             expertise. Contact me and let’s achieve great things together!
@@ -57,6 +56,7 @@ const Contact = ({ theme}) => {
             </div>
           </div>
         </div>
+
         <form onSubmit={onSubmit} className="contact-right">
           <label htmlFor="name">Your Name</label>
           <input
@@ -66,6 +66,7 @@ const Contact = ({ theme}) => {
             placeholder="Your name..."
             required
           />
+
           <label htmlFor="email">Your Email</label>
           <input
             id="email"
@@ -74,6 +75,7 @@ const Contact = ({ theme}) => {
             placeholder="Your email..."
             required
           />
+
           <label htmlFor="message">Your Message</label>
           <textarea
             id="message"
@@ -82,6 +84,7 @@ const Contact = ({ theme}) => {
             placeholder="Enter your message..."
             required
           ></textarea>
+
           <button type="submit" className="contact-submit">
             Send Message
           </button>

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import "./About.css";
 
@@ -5,20 +6,19 @@ const CircularProgress = ({ value }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => setProgress(value), 500); // Delay before the progress fills
+    const timer = setTimeout(() => setProgress(value), 500);
     return () => clearTimeout(timer);
   }, [value]);
 
-  const radius = 35; // Radius of the circle
-  const circumference = 2 * Math.PI * radius; // Circumference of the circle
-  const offset = circumference - (progress / 100) * circumference; // Stroke offset for progress
+  const radius = 35;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (progress / 100) * circumference;
 
-  // Determine progress bar color based on the value
   const getColor = (progress) => {
-    if (progress >= 80) return "#4caf50"; // Green
-    if (progress >= 60) return "#ffc107"; // Yellow
-    if (progress >= 40) return "#ff9800"; // Orange
-    return "#f44336"; // Red
+    if (progress >= 80) return "#4caf50";
+    if (progress >= 60) return "#ffc107";
+    if (progress >= 40) return "#ff9800";
+    return "#f44336";
   };
 
   return (
@@ -33,7 +33,7 @@ const CircularProgress = ({ value }) => {
           style={{
             strokeDasharray: circumference,
             strokeDashoffset: offset,
-            stroke: getColor(progress), // Set dynamic color
+            stroke: getColor(progress),
           }}
         />
       </svg>
@@ -42,30 +42,24 @@ const CircularProgress = ({ value }) => {
   );
 };
 
+CircularProgress.propTypes = {
+  value: PropTypes.number.isRequired,
+};
+
 const About = () => {
-  const [theme, setTheme] = useState("light");
   const skills = [
-    { name: "HTML", value: 90 },
-    { name: "JavaScript", value: 85 },
-    { name: "TAILWINDCSS", value: 75 },
-    { name: "React", value: 95 },
-    { name: "Flutter", value: 80 },
-    { name: "Kotlin", value: 60 },
+    { name: "python", value: 75 },
+    { name: "dart", value: 90 },
+    { name: "Asp.net", value: 70 },
+    { name: "React", value: 60 },
+    { name: "Flutter", value: 90 },
+    { name: "AWS", value: 60 },
+    { name: "Figma", value: 80 },
     { name: "ML Algorithms (NN, R)", value: 70 },
   ];
 
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    document.body.className = newTheme;
-  };
-
   return (
     <div id="about" className="about">
-      <button className="theme-toggle" onClick={toggleTheme}>
-        Tog
-      </button>
-
       <div className="about-title">
         <h1>About</h1>
         <div className="underline"></div>

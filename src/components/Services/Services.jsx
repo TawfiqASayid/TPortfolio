@@ -22,15 +22,11 @@ const Services = () => {
       </div>
       <div className="services-container">
         {Services_Data.map((service) => (
-          <div
-            key={service.s_no}
-            className="services-format"
-            onClick={() => handleReadMore(service)}
-          >
+          <div key={service.s_no} className="services-format">
             <h3>{service.s_no}</h3>
             <h2>{service.s_name}</h2>
             <p>{service.s_description}</p>
-            <div className="services-readmore">
+            <div className="services-readmore" onClick={() => handleReadMore(service)}>
               <p>Read More</p>
               <img src={arrow_icon} alt="arrow" />
             </div>
@@ -46,12 +42,8 @@ const Services = () => {
               &times;
             </button>
             <h2>{selectedService.s_name}</h2>
-            <p>{selectedService.s_description}</p>
-            <p>
-              <strong>More Details:</strong> Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Quisque volutpat justo ut metus
-              ultricies, non tincidunt lorem cursus.
-            </p>
+            <p><strong>Overview:</strong> {selectedService.s_description}</p>
+            <p><strong>Details:</strong> {selectedService.details}</p>
           </div>
         </div>
       )}
