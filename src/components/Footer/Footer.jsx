@@ -1,6 +1,7 @@
 import footer_logo from '../../assets/my_icon.png';
 import user_icon from '../../assets/user_icon.svg';
 import './Footer.css';
+// import Terms from './pages/Terms';
 
 const Footer = () => {
   const handleSubscribe = () => {
@@ -44,7 +45,7 @@ const Footer = () => {
           © 2025 Tofik Ahmed. All rights reserved.
         </p>
         <div className="footer-bottom-right">
-          <a href="#terms" className="footer-link">Terms of Service</a>
+          <a href="terms" className="footer-link">Terms of Service</a>
           <a href="#privacy" className="footer-link">Privacy Policy</a>
           <a href="#hire" className="footer-link">Hire Me</a>
         </div>
